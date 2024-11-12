@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from "@angular/common/http";
+import {ConfirmationService, MessageService} from "primeng/api";
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -22,6 +24,7 @@ import {NgOptimizedImage} from "@angular/common";
     ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         BrowserAnimationsModule,
         AppRoutingModule,
         CardModule,
@@ -32,7 +35,7 @@ import {NgOptimizedImage} from "@angular/common";
         InputTextModule,
         NgOptimizedImage
     ],
-    providers: [],
+    providers: [MessageService, ConfirmationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
