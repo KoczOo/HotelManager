@@ -1,0 +1,206 @@
+//input
+input.p-inputtext {
+  padding: 6px 10px;
+}
+input::placeholder {
+  color: #969595;
+}
+input:focus-visible {
+  outline: none !important;
+}
+.p-inputtext, .p-dropdown, .p-calendar-w-btn, .p-button {
+  border-radius: 12px !important;
+}
+.p-datepicker .p-yearpicker .p-yearpicker-year.p-disabled {
+  color: #9d9d99;
+}
+.p-datepicker .p-monthpicker .p-monthpicker-month.p-disabled {
+  color: #9d9d99;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+///////////////////////////////////////////////////
+//text-area
+.text-area-wrapper {
+  display: grid;
+  .remaining {
+    justify-self: flex-end;
+    padding-top: 10px;
+    color: var(--text);
+  }
+  textarea {
+    height: 100%;
+    scrollbar-width: none;
+  }
+}
+.text-area {
+  border-radius: 12px;
+}
+///////////////////////////////////////////////////
+//dropdown
+p-dropdown {
+  .p-inputtext {
+    padding: 6px 10px;
+    &:focus-visible {
+      outline: none !important;
+    }
+  }
+  .p-dropdown {
+    width: 100%;
+  }
+}
+.p-dropdown.disabled .p-dropdown-trigger {
+  color: var(--paginator-color) !important;
+  opacity: 0.38 !important;
+  background-color: var(--paginator-color) !important;
+  border-radius: 0 12px 12px 0 !important;
+}
+.p-dropdown-item.p-disabled {
+  background-color: unset !important;
+  opacity: 0.38 !important;
+}
+// --> ustawienie szerokości rozsuwanego dropdownu na szerokość inputu
+.p-dropdown-panel {
+  overflow: hidden;
+}
+.p-dropdown-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  .selected-dropdown-item {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+.p-dropdown-label, .p-dropdown-label .selected-dropdown-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//<--
+@media only screen and (max-width: 1200px) {
+  .field {
+    min-width: 100% !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  :host ::ng-deep .p-dropdown {
+    min-width: 100% !important;
+  }
+}
+//checkbox
+.checkbox-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  p-checkbox {
+    padding-top: 1rem
+  }
+}
+/////////////////////////////////////
+//calendar
+p-calendar {
+  .p-calendar {
+    width: 100%;
+  }
+}
+.p-datepicker.p-component {
+  min-width: 150px;
+}
+.p-datepicker-calendar-container table thead th span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: unset;
+  height: unset;
+}
+@media only screen and (max-width: 600px) {
+  .p-calendar {
+    min-width: 100% !important;
+  }
+}
+.calendar-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+.p-datepicker-year {
+  font-family: "Montserrat-Light", serif
+}
+.p-datepicker-month {
+  font-family: "Montserrat-Light", serif
+}
+.pointer-events {
+  cursor: pointer !important;
+}
+p-calendar.calendar-control input {
+  border-radius: 12px !important;
+}
+button.p-datepicker-trigger {
+  height: 100%;
+}
+////////////////////////////////////
+//buttons
+.form-button {
+  font-weight: 900;
+  border-radius: 2rem;
+  button {
+    padding: 5px 30px;
+  }
+}
+.form-button[type="submit"]:not(:disabled) {
+  cursor: default !important;
+}
+.p-button-outlined span {
+  font-family: "Montserrat-Bold", serif;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+///////////////////////////////////////
+//context menu
+.p-menu .p-menuitem-link {
+  padding: 0.5rem 0.5rem !important;
+}
+.p-menu {
+  min-width: 8em;
+}
+////////////////////////////////////////
+//walidacja
+.invalid {
+  border-color: var(--alert-color) !important;
+  span {
+    border-color: var(--alert-color) !important;
+  }
+  input {
+    border-color: var(--alert-color) !important;
+    box-shadow: none;
+  }
+  .p-dropdown {
+    border-color: var(--alert-color) !important;
+  }
+  .p-calendar .p-inputtext {
+    border-color: var(--alert-color) !important;
+  }
+  .p-togglebutton.p-button {
+    border-color: var(--alert-color) !important;
+  }
+}
+.invalid-alert {
+  .p-dropdown {
+    border-color: var(--alert-color) !important;
+  }
+}
+///////////////////////////////////
+//password
+.p-password-input {
+  width: 100% !important;
+}
