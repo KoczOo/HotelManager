@@ -1,0 +1,28 @@
+@import "bootstrap/scss/bootstrap";
+
+/*Import primeNG*/
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+@import "primeng/resources/themes/saga-green/theme.css";
+@import "primeng/resources/primeng.css";
+
+@import "styles/controls";
+
+.validator-error {
+  color: var(--alert-color);
+  font-style: italic;
+  font-size: 15px;
+  padding-top: 4px;
+}
+
+.break-line-section {
+  border: solid #4CAF50;
+  border-width: 1px 0 0 0;
+  opacity: 1;
+  margin-top: 9px;
+}
+
+:root {
+  --alert-color: #cc3300;
+}

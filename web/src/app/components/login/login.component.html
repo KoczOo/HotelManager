@@ -1,0 +1,57 @@
+<div class="login-container">
+    <p-card>
+        <ng-template pTemplate="header">
+            <img src="assets/logo-no-background.png" alt="logo" class="logo">
+        </ng-template>
+        <div class="p-card-body">
+            <div class="title-section text-justify">
+                <h5 class="section-body-card-title underline">LOGOWANIE</h5>
+                <hr class="break-line-section"/>
+            </div>
+            <div class="section-body text-justify">
+                <form class="form-group" #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+                    <div class="input-filed-container w-100 px-4 py-3">
+                        <label class="input-label px-1" for="login">
+                            Login
+                        </label>
+                        <input pInputText id="login" name="login" type="text" ngModel required
+                               #login="ngModel" [style]="{width: '100%'}"
+                               [maxlength]="250"
+                               [ngClass]="{'invalid': (login.errors?.['required'] && login.touched)||(incorrectLogIn && password.value && login.value)}"/>
+                        <div *ngIf="login.errors?.['required'] && login.touched && !login.value"
+                             class="validator-error">
+                            Pole wymagane
+                        </div>
+                    </div>
+                    <div class="input-filed-container w-100 px-4 py-1">
+                        <label class="input-label px-1" for="haslo">
+                            Hasło
+                        </label>
+                        <p-password
+                                ngModel
+                                #password="ngModel"
+                                [toggleMask]="true"
+                                [feedback]="false"
+                                [maxLength]="120"
+                                [style]="{width: '100%'}"
+                                id="haslo"
+                                name="haslo"
+                                type="password"
+                                [ngClass]="{'invalid': (password.errors?.['required'] && password.touched)||(incorrectLogIn && password.value && login.value)}"
+                                required>
+                        </p-password>
+                        <div *ngIf="password.errors?.['required'] && password.touched && !password.value"
+                             class="validator-error">
+                            Pole wymagane
+                        </div>
+                    </div>
+                    <div class="text-center login-button-container">
+                        <p-button [disabled]="isDisabled(loginForm)" label="ZALOGUJ" type="submit"
+                                  styleClass="p-button p-button-rounded login-button"></p-button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </p-card>
+</div>
+

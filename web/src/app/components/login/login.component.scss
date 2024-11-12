@@ -1,0 +1,76 @@
+.login-container {
+  max-width: 520px;
+  margin: 150px auto;
+}
+.field {
+  text-align: left !important;
+}
+.right {
+  text-align: right !important;
+}
+.alert p {
+  margin-bottom: 0
+}
+::ng-deep {
+  .logo {
+    width: 400px;
+    height: 100px;
+    margin:  60px 0 25px 0;
+  }
+  .p-card-header {
+    display: flex;
+    justify-content: center;
+  }
+  .remind-user-icon {
+    width: 18px;
+    height: 18px;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .section-body-card-title {
+    font-size: 20px;
+    &::first-letter {
+      font-size: 1.25em !important;
+    }
+    padding-bottom: 10px;
+  }
+  .section-body-card-paragraph {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #828282;
+    margin: 0;
+  }
+  .login-button {
+    margin-top: 25px;
+    padding: 10px 100px;
+    font-size: 18px;
+  }
+  .text-justify {
+    text-align: justify !important;
+  }
+  .underline {
+    margin-bottom: -6px;
+    padding: 0;
+  }
+  .subsection-title {
+    margin: 0;
+    padding-top: 5px;
+    &::first-letter {
+      font-size: 1.25em !important;
+    }
+  }
+  .input-label {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .subsection-header {
+    margin-left: 2px;
+  }
+  .p-card .p-card-body {
+    padding: 3px 1rem !important;
+  }
+  .login-button-container {
+    margin-top: 20px;
+    margin-bottom: 45px;
+  }
+}
