@@ -28,7 +28,7 @@ public class UserService {
                 user.getHaslo())) {
             return userMapper.toUserDto(user);
         }
-        throw new AppException("Login lub hasło nieprawidłowe", HttpStatus.BAD_REQUEST);
+        throw new AppException("Hasło nieprawidłowe", HttpStatus.BAD_REQUEST);
     }
 
     public UserDto findByLogin(String login) {
