@@ -3,7 +3,7 @@ import { CookieService } from "ngx-cookie-service";
 import moment from "moment/moment";
 import { BehaviorSubject } from "rxjs";
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { StorageHelperService } from "../../../../../../../politechnika/hotel_manager/web/src/app/helpers/storage-helper.service";
+import { StorageHelperService } from "../../helpers/storage-helper.service";
 import {MessageServiceService} from "../message-service/message-service.service";
 
 @Injectable({

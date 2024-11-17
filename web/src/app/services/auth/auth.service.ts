@@ -42,9 +42,6 @@ export class AuthService {
                     this.invalidLogin = false;
                     const decodedToken = this.decodeToken(response.tokenContent);
                     this.authTokenService.setToken(response.tokenContent);
-                    this.storageHelper.setItem("email", decodedToken.sub);
-                    this.storageHelper.setItem("dlugoscSesji", decodedToken.dlugoscSesji);
-                    this.storageHelper.setItem("tokenExpirationDate", decodedToken.exp);
                     this.authTokenService.setTimesToTimer();
                     this.router.navigate([""]);
                 }
