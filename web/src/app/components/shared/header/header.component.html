@@ -1,0 +1,43 @@
+<header class="header-element-color">
+  <div class="header-container">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4 col-sm-12 col-12 text-center align-middle">
+          <div class="logo-panel">
+            <img src="assets/logo-no-background.png" alt="HM Logo"/>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-7 text-center align-middle">
+          <ng-container *ngIf="authServiceToken.isLoggedIn()">
+            <div>
+              <div class="navigation-container">
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <div class="col-md-4 col-sm-6 col-5 text-end">
+          <div class="px-2 py-3">
+            <div class="button-menu-container">
+              <ng-container *ngIf="authServiceToken.isLoggedIn()">
+                <div (click)="op.toggle($event)" class="user-menu-button">
+                  <p-button icon="pi pi-user" styleClass="p-button-text"></p-button>
+                </div>
+                <p-overlayPanel #op [dismissable]="true" appendTo="body">
+                  <ng-template pTemplate="content">
+                    <div class="break-line"></div>
+                    <div class="row">
+                      <div class="col-12 text-center pt-2">
+                        <p-button (onClick)="logoutUser()" icon="pi pi-power-off"
+                                  label="Wyloguj się" styleClass="p-button-text"></p-button>
+                      </div>
+                    </div>
+                  </ng-template>
+                </p-overlayPanel>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

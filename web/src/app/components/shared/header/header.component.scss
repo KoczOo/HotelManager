@@ -1,0 +1,215 @@
+.logo-panel {
+  display: flex;
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 200px;
+  height: 50px;
+  @media only screen and (max-width: 767px) {
+    margin-left: 0;
+  }
+}
+.header-element-color {
+  background-color: #242424;
+}
+.header-container {
+  background-color: #242424;
+  color: #bebebe;
+  overflow: hidden;
+  width: 99vw;
+  min-height: 70px;
+}
+.panel-menu-container {
+  display: flex;
+}
+.navigation-container {
+  margin-top: 25px;
+  white-space: nowrap;
+}
+.navigation-link {
+  font-family: "Montserrat-Bold", serif;
+  text-decoration: none;
+  color: #9d9d9d;
+  font-size: 14px;
+  padding-right: 12px;
+  padding-left: 12px;
+  &.cursor-pointer {
+    cursor: pointer;
+  }
+  &::first-letter {
+    font-size: 20px;
+  }
+  &.active {
+    &::first-letter {
+      color: #ffffff;
+    }
+  }
+}
+.navigation-link.submenu {
+  font-size: 12px;
+  padding-left: 5px;
+  &::first-letter {
+    font-size: 18px;
+  }
+}
+.hover-underline-animation {
+  display: inline-flex;
+  position: relative;
+  color: #9d9d9d;
+  &.active {
+    color: var(--text-on-dark);
+  }
+}
+.hover-underline-animation::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #9d9d9d;
+  transform-origin: bottom right;
+  transition: transform 0.35s ease-out;
+  & navigation-link .active {
+    background-color: #ffffff;
+  }
+}
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.button-icon {
+  height: 34px;
+  width: 34px;
+  cursor: pointer;
+}
+.dark {
+  transform: rotateY(180deg);
+}
+.brightness-icon {
+  height: 24px;
+  width: 24px;
+  padding: 0 !important;
+}
+::ng-deep .brightness-icon .p-button:hover {
+  background-color: transparent !important;
+}
+::ng-deep .brightness-icon .p-button:focus {
+  background-color: transparent !important;
+}
+.button-menu-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.flip-button {
+  width: 44px;
+  height: 44px;
+}
+.flip-button-inner {
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.light {
+  transform: rotateY(180deg);
+}
+.flip-button-light, .flip-button-dark {
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: rotateY(0deg);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.flip-button-dark {
+  transform: rotateY(180deg);
+}
+.user-menu-button {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+::ng-deep .p-overlaypanel .p-overlaypanel-content {
+  background-color: #242424;
+  box-shadow: 0 0 0 0.40px #9d9d9d;
+  -moz-box-shadow: 0 0 0.80px 0.80px #9d9d9d;
+  -webkit-box-shadow: 0 0 1.10px 1.10px #9d9d9d !important;
+  -ms-box-shadow: 0 0 0.80px 0.80px #9d9d9d;
+  -o-box-shadow: 0 0 0.80px 0.80px #9d9d9d;
+  padding: 1.5rem 4rem 0.5rem 2rem;
+}
+::ng-deep .p-overlaypanel:before {
+  content: none !important;
+  border-color: #242424;
+  color: #242424;
+}
+::ng-deep .p-overlaypanel:after {
+  content: none !important;
+  border-color: #242424;
+  color: #242424;
+}
+.context-avatar {
+  height: 90px !important;
+  width: 90px !important;
+  box-shadow: none !important;
+  background-color: var(--text-on-dark);
+  border-radius: 50%;
+}
+.user-name-text {
+  font-family: "Montserrat-MediumItalic", serif;
+  text-decoration: none;
+  color: var(--text-on-dark);
+  font-size: 16px;
+  margin-left: 5px;
+  margin-bottom: 2px;
+  padding: 0;
+  width: 250px;
+}
+.user-details-text {
+  margin-left: 5px;
+  margin-bottom: 2px;
+  color: var(--text-on-dark);
+  padding: 0;
+  width: 250px;
+}
+.break-line {
+  height: 1px;
+  margin: 0  -64px 0 -33px;
+  box-shadow: 0 1px 0.8px -0.2px #9d9d9d;
+  -moz-box-shadow: 0 1px 0.8px -0.2px #9d9d9d;
+  -webkit-box-shadow: 0 1px 0.8px -0.2px #9d9d9d;
+  -ms-box-shadow: 0 1px 0.8px -0.2px #9d9d9d;
+  -o-box-shadow: 0 1px 0.8px -0.2px #9d9d9d;
+}
+.project-menu {
+  cursor: pointer;
+}
+::ng-deep .p-overlaypanel {
+  padding: 0;
+}
+.header-submenu {
+  z-index: 9999;
+  position: absolute;
+  background-color: #242424;
+  text-align: initial;
+  width: 100%;
+  left: 0;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  .header-submenu-item {
+    img {
+      vertical-align: initial;
+      height: 14px;
+      width: 14px;
+    }
+  }
+}
+.navigation-menu-element {
+  padding-bottom: 15px;
+}

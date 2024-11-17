@@ -55,4 +55,9 @@ export class AuthService {
     login(daneLogowania: any) {
         return this.restService.post("login", daneLogowania);
     }
+
+  onLogout() {
+    this.authTokenService.removeToken();
+    window.location.reload();
+  }
 }

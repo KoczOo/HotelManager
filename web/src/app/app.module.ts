@@ -15,26 +15,32 @@ import {Button} from "primeng/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {InputTextModule} from "primeng/inputtext";
 import {NgOptimizedImage} from "@angular/common";
+import { HeaderComponent } from './components/shared/header/header.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import {OverlayPanelModule} from "primeng/overlaypanel";
 
 @NgModule({
     declarations: [
         AppComponent,
         LayoutComponent,
-        LoginComponent
+        LoginComponent,
+        HeaderComponent,
+        FooterComponent
     ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        CardModule,
-        FormsModule,
-        PasswordModule,
-        ToggleButtonModule,
-        Button,
-        InputTextModule,
-        NgOptimizedImage
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    CardModule,
+    FormsModule,
+    PasswordModule,
+    ToggleButtonModule,
+    Button,
+    InputTextModule,
+    NgOptimizedImage,
+    OverlayPanelModule
+  ],
     providers: [MessageService, ConfirmationService],
     bootstrap: [AppComponent]
 })
