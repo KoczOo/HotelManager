@@ -7,6 +7,8 @@ import {StorageHelperService} from "../../helpers/storage-helper.service";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {AuthTokenService} from "./auth-token.service";
 import {Router} from "@angular/router";
+import {MessageService} from "primeng/api";
+import {MessageServiceService} from "../message-service/message-service.service";
 
 @Injectable({
     providedIn: 'root'
@@ -18,6 +20,7 @@ export class AuthService {
         private restService: RestService,
         private storageHelper: StorageHelperService,
         private authTokenService: AuthTokenService,
+        private messageService: MessageServiceService,
         ) {}
 
     helper = new JwtHelperService();
@@ -32,8 +35,9 @@ export class AuthService {
         );
         this.restService.post("login", this.daneLogowania)
             .pipe(
-                catchError(async (error) => {
+                catchError(async (error: any) => {
                     this.invalidLogin = true;
+                    this.messageService.showMessageError(error.error.message);
                     throw error;
                 }),
             )

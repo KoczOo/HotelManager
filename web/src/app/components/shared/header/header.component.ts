@@ -10,10 +10,6 @@ import {StorageHelperService} from "../../../helpers/storage-helper.service";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
-  lightMode = true;
-  menuElement: [] = [];
-  childrenElements: number = 0;
-  falseSubmenuCreated: boolean = false;
 
   constructor(
     private router: Router,
@@ -32,7 +28,4 @@ export class HeaderComponent implements OnInit {
     this.authService.onLogout();
   }
 
-  checkExactPath(path: string) {
-    return this.router.url === path;
-  }
 }

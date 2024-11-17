@@ -18,6 +18,7 @@ import {NgOptimizedImage} from "@angular/common";
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import {OverlayPanelModule} from "primeng/overlaypanel";
+import {ToastModule} from "primeng/toast";
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ import {OverlayPanelModule} from "primeng/overlaypanel";
     Button,
     InputTextModule,
     NgOptimizedImage,
-    OverlayPanelModule
+    OverlayPanelModule,
+    ToastModule
   ],
     providers: [MessageService, ConfirmationService],
     bootstrap: [AppComponent]
