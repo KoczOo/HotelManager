@@ -42,7 +42,6 @@ input[type=number] {
 //dropdown
 p-dropdown {
   .p-inputtext {
-    padding: 6px 10px;
     &:focus-visible {
       outline: none !important;
     }
@@ -74,11 +73,6 @@ p-dropdown {
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-}
-.p-dropdown-label, .p-dropdown-label .selected-dropdown-item {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 //<--
 @media only screen and (max-width: 1200px) {

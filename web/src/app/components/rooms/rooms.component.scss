@@ -1,7 +1,35 @@
-::ng-deep {
+::ng-deep.rooms {
   .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(odd) {
     input.disabled {
       background-color: #d3fcd5 !important;
+    }
+  }
+  .section-projects {
+    position: relative;
+    margin: 68px 4% 0 4%;
+  }
+  .section-header-projects {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 32px;
+  }
+  .section-header-title {
+    font-variant: small-caps;
+  }
+  .section-header-title::first-letter {
+    font-size: 1.25em;
+  }
+  .section-header-title span {
+    font-variant: small-caps;
+    display: inline-block;
+  }
+  .section-body {
+    padding: 0 1.25rem 0 1.25rem;
+  }
+  .section-header-title {
+    span::first-letter {
+      font-size: 1.25em;
     }
   }
 }

@@ -1,0 +1,140 @@
+.p-datatable .p-datatable-thead th {
+  border: 0 !important;
+}
+table, td {
+  border: 0 !important;
+}
+.p-datatable .p-datatable-tbody > :not(.striped-tr) tr > td {
+  padding: 10px 10px;
+}
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
+  background: transparent;
+}
+.item-header {
+  font-size: 18px;
+  margin-left: 10px;
+}
+.table-header {
+  color: var(--text);
+}
+.add-project-folder-icon {
+  height: 40px;
+  width: 40px;
+  padding: 6px;
+}
+.edit-project-folder-icon {
+  height: 40px;
+  width: 40px;
+  padding: 8px;
+}
+.p-datatable .p-datatable-tbody > tr.striped-tr:last-child {
+  border-bottom: 1px solid #4CAF50;
+}
+.p-datatable .p-datatable-thead > tr.striped-tr {
+  border-bottom: 1px solid #4CAF50 !important;
+  border-top: 1px solid #4CAF50 !important;
+}
+.employer-container {
+  margin-top: 2.5%;
+  margin-bottom: 8px;
+}
+.section-body-table {
+  padding: 0 1%;
+}
+.table-item {
+  color: var(--text);
+  font-weight: 600;
+  word-break: break-word;
+}
+@supports (-webkit-hyphens:none) {
+  .table-item {
+    color: var(--text);
+    font-weight: 500 !important;
+  }
+}
+.p-datatable .p-datatable-thead > tr > th {
+  padding: 0 1rem !important;
+  height: 45px;
+}
+.p-datatable .p-datatable-thead > tr > th.filter-element {
+  line-height: 25px !important;
+  padding: 0.4rem !important;
+}
+.p-datatable > .p-datatable-wrapper {
+  overflow: visible !important;
+}
+.table-dots {
+  width: 1%;
+  vertical-align: top;
+  text-align: right !important;
+  padding-top: 6px !important;
+}
+.edit-mode-icons {
+  width: 1%;
+  vertical-align: top;
+  text-align: right !important;
+  padding-left: 0 !important;
+  padding-top: 8px !important;
+}
+.table-details {
+  display: grid;
+  color: var(--table-details);
+  cursor: auto;
+  strong {
+    color: var(--text);
+  }
+  span:nth-child(2) {
+    color: var(--table-details);
+  }
+}
+.table-icons {
+  width: 5%;
+  padding-right: 0;
+  vertical-align: top;
+  cursor: default;
+}
+.table-details strong, .table-details span:not(.inside-span) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow-wrap: break-word;
+}
+.p-paginator {
+  justify-content: center;
+  margin-top: 1rem;
+}
+.p-paginator-rpp-options {
+  width: 4.5rem !important;
+}
+.p-paginator-rpp-options span {
+  :focus-visible {
+    border: none !important;
+  }
+}
+.p-paginator-rpp-options span:focus-visible {
+  border: none !important;
+}
+.p-datatable .p-paginator-bottom {
+  border: 0;
+}
+.p-checkbox .p-checkbox-box {
+  border-radius: 6px;
+}
+.brakDanych {
+  font-style: italic;
+  color: var(--no-data-text) !important;
+}
+.p-datatable .p-datatable-tbody > tr > td {
+  vertical-align: top;
+  padding: 13px 0.4rem 0.4rem;
+}
+.p-datatable .p-datatable-thead > tr > th {
+  padding: 0.4rem !important;
+}
+.opacity-65 {
+  opacity: .65 !important;
+}
+.td-cell-editor {
+  padding: 8px 0.4rem 0.4rem !important;
+}

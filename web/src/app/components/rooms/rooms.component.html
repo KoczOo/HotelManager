@@ -21,7 +21,7 @@
                 <div class="row px-2 py-1">
                     <div class="col">
                         <div class="row">
-                            <div class="col-xl-3 col-lg-3 col-md-3 py-2">
+                            <div class="col-xl-3 col-lg-3 col-md-3 offset-3 py-2">
                                 <div class="input-filed-container w-100">
                                     <label class="input-label"
                                            for="dataOd">
@@ -39,13 +39,14 @@
                                     <p-calendar id="dataDo"></p-calendar>
                                 </div>
                             </div>
+                            <div class="col-2 py-2">
+                                <p-button (click)="szukajPokoju()"
+                                          class="add-item-button" label="SZUKAJ" size="small"
+                                          styleClass="p-button p-button-rounded" type="submit"></p-button>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-auto py-2">
-                        <p-button (click)="szukajPokoju()"
-                                  class="add-item-button" label="SZUKAJ" size="small"
-                                  styleClass="p-button p-button-rounded" type="submit"></p-button>
-                    </div>
+
                 </div>
             </form>
             <div class="section-body-table py-5">

@@ -10,5 +10,83 @@
   .header {
     z-index: 2;
   }
+  .section {
+    position: relative;
+    margin: 20px 4% 0 4%;
+  }
+  .section-wide {
+    position: relative;
+    margin: 68px 4% 0 4%;
+  }
+  .section-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 32px;
+    width: 100%;
+  }
+  .section-title {
+    color: var(--text) !important;
+    span::first-letter {
+      font-size: 1.25em !important;
+    }
+  }
+  .section-title::first-letter {
+    font-size: 1.25em !important;
+  }
+  .section-header-title {
+    font-variant: small-caps;
+  }
+  .section-header-title::first-letter {
+    font-size: 1.25em;
+  }
+  .section-header-title span {
+    font-variant: small-caps;
+    display: inline-block;
+  }
+  .section-header-title {
+    span::first-letter {
+      font-size: 1.25em;
+    }
+  }
+  .break-line-section {
+    border: solid #4CAF50;
+    border-width: 1px 0 0 0;
+    opacity: 1;
+    margin-top: 9px;
+  }
+  .input-label {
+    color: #212121;
+    white-space: nowrap;
+  }
+  .add-item-button {
+    font-weight: 900;
+    border-radius: 2rem;
+    &:not(:disabled) {
+      cursor: auto;
+    }
+  }
+  .add-item-button .p-button {
+    height: 36px;
+    width: 125px !important;
+    box-shadow: -2px 2px 0px 0px var(--tertiary);
+    margin-top: 24px;
+  }
+  .add-item-button .p-button.p-disabled {
+    box-shadow: none;
+  }
+  .empty-text {
+    font-style: italic;
+    font-weight: bold;
+    color: var(--no-data-text);
+  }
+  .p-paginator-rpp-options {
+    border-radius: 5px !important;
+  }
+  @supports (-webkit-hyphens:none) {
+    strong, .empty-text {
+      font-weight: normal !important;
+    }
+  }
 }
 
