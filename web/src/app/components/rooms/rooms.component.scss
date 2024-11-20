@@ -1,0 +1,7 @@
+::ng-deep {
+  .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(odd) {
+    input.disabled {
+      background-color: #d3fcd5 !important;
+    }
+  }
+}
