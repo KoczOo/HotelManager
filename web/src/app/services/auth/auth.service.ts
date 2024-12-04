@@ -44,8 +44,9 @@ export class AuthService {
             .subscribe((response) => {
                 if (response) {
                     this.invalidLogin = false;
-                    const decodedToken = this.decodeToken(response.tokenContent);
-                    this.authTokenService.setToken(response.tokenContent);
+                    console.log(response)
+                    const decodedToken = this.decodeToken(response.token);
+                    this.authTokenService.setToken(response.token);
                     this.authTokenService.setTimesToTimer();
                     this.router.navigate([""]);
                 }
