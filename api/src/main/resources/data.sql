@@ -1,3 +1,4 @@
+insert into users (id, username, password) values (44, 'skoczotowski','$2a$12$A.MlcA53fCFGdxMER5Me4eYwoLb/0ZI867fssilGfM7hDKeaw6Pka');
 insert into room (id, number, capacity, floor)
 values
     (1, 100, 2, 1 ),
