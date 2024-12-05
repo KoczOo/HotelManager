@@ -1,9 +1,6 @@
 package com.hotel_manager.api.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,11 +13,15 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int roomId;
     private int guestId;
     private String reservationDate;
     private String reservationTime;
     private String reservationStatus;
     private String paymentMethod;
     private String paymentStatus;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "room_id")
+    private Room room;
+
 }

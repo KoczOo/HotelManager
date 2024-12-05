@@ -31,7 +31,7 @@ public class RoomController {
     }
 
     @GetMapping("room/{id}")
-    public Room getRoom(@PathVariable int id) {
-        return new Room(id, 100, 2, 1);
+    public ResponseEntity<RoomDto> getRoom(@PathVariable int id) {
+        return ResponseEntity.ok(roomService.getRoomById(id));
     }
 }

@@ -1,6 +1,7 @@
 package com.hotel_manager.api.service.impl;
 
 import com.hotel_manager.api.dto.RoomDto;
+import com.hotel_manager.api.exceptions.RoomNotFoundException;
 import com.hotel_manager.api.models.Room;
 import com.hotel_manager.api.repository.RoomRepository;
 import com.hotel_manager.api.service.RoomService;
@@ -24,6 +25,12 @@ public class RoomServiceImpl implements RoomService {
     public List<RoomDto> getAllRooms() {
         List<Room> rooms = roomRepository.findAll();
         return rooms.stream().map(this::mapToDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public RoomDto getRoomById(int id) {
+        Room room = roomRepository.findById(id).orElseThrow(()-> new RoomNotFoundException("Nie znaleziono pokoju o wskazanym ID!"));
+        return mapToDto(room);
     }
 
     private RoomDto mapToDto(Room room) {
