@@ -1,10 +1,10 @@
-package com.hotel.manager.backend;
+package com.hotel_manager.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BackendApplicationTests {
+class ApiApplicationTests {
 
 	@Test
 	void contextLoads() {
