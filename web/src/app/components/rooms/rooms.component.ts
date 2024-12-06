@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {TableLazyLoadEvent} from "primeng/table";
 import {PageableDto} from "../../dto/pagination/pageable-dto";
+import {RoomsService} from "../../services/rooms/rooms.service";
 
 @Component({
   selector: 'app-rooms',
@@ -16,22 +17,18 @@ export class RoomsComponent implements OnInit {
   pokoje: any[];
   isLoading: boolean = true;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, public roomService: RoomsService) {
   }
 
   ngOnInit() {
     this.form = this.fb.group({});
-    /*this.roomsService.readRooms(this.page).subscribe(response => {
-      console.log(response)
+    this.roomService.readRooms().subscribe(response => {
       this.pokoje = response;
-    })*/
+    })
   }
 
   szukajPokoju() {
 
   }
 
-  onPageChange($event: TableLazyLoadEvent) {
-
-  }
 }

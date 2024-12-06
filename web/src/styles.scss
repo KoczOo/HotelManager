@@ -10,6 +10,29 @@
 @import "styles/controls";
 @import "styles/tables";
 
+a {
+  text-decoration: none !important;
+}
+ul, ol {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+//Koniec ###
+
+html {
+  font-size: 1rem;
+  height: 100%;
+  border: none !important;
+  min-width: 770px !important;
+}
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .validator-error {
   color: var(--alert-color);
   font-style: italic;

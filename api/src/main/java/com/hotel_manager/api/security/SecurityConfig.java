@@ -20,32 +20,25 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private JwtAuthEntryPoint jwtAuthEntryPoint;
-    private CustomUserDetailsService userDetailsService;
-    private final JwtGenerator jwtGenerator;
-    private CustomCorsConfiguration customCorsConfiguration;
 
+    private final CustomCorsConfiguration customCorsConfiguration;
     @Autowired
-    public SecurityConfig(JwtAuthEntryPoint jwtAuthEntryPoint, CustomUserDetailsService userDetailsService, JwtAuthenticationFilter jwtAuthenticationFilter, JwtGenerator jwtGenerator, CustomCorsConfiguration customCorsConfiguration) {
-        this.jwtAuthEntryPoint = jwtAuthEntryPoint;
-        this.userDetailsService = userDetailsService;
-        this.jwtGenerator = jwtGenerator;
-        this.customCorsConfiguration = customCorsConfiguration;
+    public SecurityConfig(CustomUserDetailsService userDetailsService, JwtAuthEntryPoint authEntryPoint) {
+        this.customCorsConfiguration = new CustomCorsConfiguration();
     }
 
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
-                .addFilterBefore(new JwtAuthenticationFilter(jwtGenerator), BasicAuthenticationFilter.class)
                 .sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .cors(c -> c.configurationSource(customCorsConfiguration))
                 .authorizeHttpRequests((requests) ->
                         requests.requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
                                 .anyRequest().authenticated()
-                );
+                )
+                .addFilterBefore(jwtAuthenticationFilter(), BasicAuthenticationFilter.class);
         return http.build();
-
     }
 
     @Bean
@@ -56,6 +49,11 @@ public class SecurityConfig {
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public JwtAuthenticationFilter jwtAuthenticationFilter() {
+        return new JwtAuthenticationFilter();
     }
 
 }

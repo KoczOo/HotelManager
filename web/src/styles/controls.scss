@@ -40,51 +40,8 @@ input[type=number] {
 }
 ///////////////////////////////////////////////////
 //dropdown
-p-dropdown {
-  .p-inputtext {
-    &:focus-visible {
-      outline: none !important;
-    }
-  }
-  .p-dropdown {
-    width: 100%;
-  }
-}
-.p-dropdown.disabled .p-dropdown-trigger {
-  color: var(--paginator-color) !important;
-  opacity: 0.38 !important;
-  background-color: var(--paginator-color) !important;
-  border-radius: 0 12px 12px 0 !important;
-}
-.p-dropdown-item.p-disabled {
-  background-color: unset !important;
-  opacity: 0.38 !important;
-}
-// --> ustawienie szerokości rozsuwanego dropdownu na szerokość inputu
-.p-dropdown-panel {
-  overflow: hidden;
-}
-.p-dropdown-item {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  .selected-dropdown-item {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-}
-//<--
-@media only screen and (max-width: 1200px) {
-  .field {
-    min-width: 100% !important;
-  }
-}
-@media only screen and (max-width: 600px) {
-  :host ::ng-deep .p-dropdown {
-    min-width: 100% !important;
-  }
-}
+
+
 //checkbox
 .checkbox-container {
   height: 100%;
