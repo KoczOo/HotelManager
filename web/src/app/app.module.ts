@@ -24,6 +24,8 @@ import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {CalendarModule} from "primeng/calendar";
 import {TableModule} from "primeng/table";
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
+import { BookingModalComponent } from './components/rooms/booking-modal/booking-modal.component';
+import {DialogService} from "primeng/dynamicdialog";
 
 @NgModule({
     declarations: [
@@ -32,7 +34,8 @@ import {AuthInterceptor} from "./interceptors/auth.interceptor";
         LoginComponent,
         HeaderComponent,
         FooterComponent,
-        RoomsComponent
+        RoomsComponent,
+        BookingModalComponent
     ],
     imports: [
         BrowserModule,
@@ -53,7 +56,7 @@ import {AuthInterceptor} from "./interceptors/auth.interceptor";
         CalendarModule,
         TableModule
     ],
-    providers: [MessageService, ConfirmationService,
+    providers: [DialogService, MessageService, ConfirmationService,
         {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},],
     bootstrap: [AppComponent]
 })

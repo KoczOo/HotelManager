@@ -37,8 +37,10 @@ public class RoomServiceImpl implements RoomService {
         RoomDto roomDto = new RoomDto();
         roomDto.setId(room.getId());
         roomDto.setNumber(room.getNumber());
+        roomDto.setStandard(room.getStandard());
         roomDto.setCapacity(room.getCapacity());
         roomDto.setFloor(room.getFloor());
+        roomDto.setPrice(room.getPrice());
         return roomDto;
     }
 

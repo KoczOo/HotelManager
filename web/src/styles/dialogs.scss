@@ -1,0 +1,59 @@
+.confirmation-dialog-button .p-button {
+  border-radius: 12px !important;
+  padding: 4px 40px;
+}
+.p-dialog {
+  max-width: 1600px; //wymuszone przez .udzial-w-projektach-rola
+  @media only screen and (max-width: 1400px) {
+    width: 95% !important;
+  }
+  .p-paginator {
+    background: var(--paginator-backgorund);
+    color: rgba(255, 255, 255, 0.87);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+}
+.p-dialog-title::first-letter {
+  font-size: 1.25em;
+}
+.p-dialog .p-dialog-header {
+  text-transform: uppercase;
+  span {
+    width: 100%;
+    border-radius: 3px;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    &::after {
+      content: "";
+      background: #4CAF50;
+      padding: 0;
+      height: 1px;
+      display: block;
+      width: 100%;
+      bottom: -16px;
+      position: relative;
+    }
+  }
+}
+.p-dialog .p-dialog-footer button {
+  margin: 0 0.8rem 0 0 !important;
+}
+.p-dialog-header-icons {
+  display: none;
+}
+.p-dialog.p-confirm-dialog .p-confirm-dialog-message {
+  margin: 0 auto;
+}
+.table-buttons-container {
+  padding-top: 1%;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}
+.p-dropdown-item span {
+  padding-left: 6px;
+  display: block;
+  color: #4CAF50;
+}

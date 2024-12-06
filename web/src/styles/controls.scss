@@ -80,12 +80,6 @@ p-calendar {
   top: 8px;
   right: 10px;
 }
-.p-datepicker-year {
-  font-family: "Montserrat-Light", serif
-}
-.p-datepicker-month {
-  font-family: "Montserrat-Light", serif
-}
 .pointer-events {
   cursor: pointer !important;
 }
@@ -106,9 +100,6 @@ button.p-datepicker-trigger {
 }
 .form-button[type="submit"]:not(:disabled) {
   cursor: default !important;
-}
-.p-button-outlined span {
-  font-family: "Montserrat-Bold", serif;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

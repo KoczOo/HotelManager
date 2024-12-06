@@ -91,11 +91,20 @@
                             <td class="table-item">{{ room.capacity }}</td>
                             <td class="table-item">{{ room.floor }}</td>
                             <td class="table-item">{{ room.price }}</td>
-                            <td class="table-dots"></td>
+                            <td class="table-dots">
+                                <p-button
+                                        (onClick)="showBookRoomModal('Rezerwacja pokoju', {room})"
+                                        icon="pi pi-calendar-plus"
+                                        class="room-action-button"
+                                        ngbTooltip="Rezerwuj"
+                                        styleClass="p-button-text">
+                                </p-button>
+                            </td>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="emptymessage">
-                        <tr *ngIf="!isLoading" class="center empty-text" style="border-bottom: 1px solid #4CAF50; padding: 10px 0">
+                        <tr *ngIf="!isLoading" class="center empty-text"
+                            style="border-bottom: 1px solid #4CAF50; padding: 10px 0">
                             <td colspan="12" style="text-align:center; padding: 20px 0;">
                                 <i>Brak pozycji do wyświetlenia</i>
                             </td>

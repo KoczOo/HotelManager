@@ -1,0 +1,58 @@
+<form class="container-fluid booking">
+    <div class="row px-4">
+        <div class="col-12">
+            <div class="row pt-3">
+                <div class="col-6 col-md">
+                    <div class="input-filed-container w-100">
+                        <label class="input-label disabled-label" for="dateFrom">Data zameldowania</label>
+                        <input class="w-100"
+                               id="dateFrom"
+                               readonly
+                               pInputText
+                               type="text"/>
+                    </div>
+                </div>
+                <div class="col-6 col-md">
+                    <div class="input-filed-container w-100">
+                        <label class="input-label disabled-label" for="dateTo">Data wymeldowania</label>
+                        <input class="w-100"
+                               id="dateTo"
+                               readonly
+                               pInputText
+                               type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-6 col-md">
+                    <div class="input-filed-container w-100">
+                        <label class="input-label disabled-label" for="name">Imię</label>
+                        <input class="w-100"
+                               id="name"
+                               pInputText
+                               type="text"/>
+                    </div>
+                </div>
+                <div class="col-6 col-md">
+                    <div class="input-filed-container w-100">
+                        <label class="input-label disabled-label" for="surname">Nazwisko</label>
+                        <input class="w-100"
+                               id="surname"
+                               pInputText
+                               type="text"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-5">
+        <div class="table-buttons-container">
+            <p-button (click)="confirmCancel($event)"
+                      label="ANULUJ"
+                      styleClass="p-button-outlined"
+                      class="form-button"></p-button>
+            <p-button (click)="submitForm(form)" class="form-button" label="ZAPISZ" styleClass="p-button-raised"
+                      type="submit"></p-button>
+        </div>
+    </div>
+</form>
