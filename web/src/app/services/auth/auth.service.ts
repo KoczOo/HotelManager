@@ -30,10 +30,10 @@ export class AuthService {
     onLogin(form: NgForm) {
         this.invalidLogin = false;
         this.daneLogowania = new DaneLogowania(
-            form.value["login"],
-            form.value["haslo"],
+            form.value["username"],
+            form.value["password"],
         );
-        this.restService.post("login", this.daneLogowania)
+        this.restService.post("api/auth/login", this.daneLogowania)
             .pipe(
                 catchError(async (error: any) => {
                     this.invalidLogin = true;

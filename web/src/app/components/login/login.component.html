@@ -11,10 +11,10 @@
             <div class="section-body text-justify">
                 <form class="form-group" #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
                     <div class="input-filed-container w-100 px-4 py-3">
-                        <label class="input-label px-1" for="login">
+                        <label class="input-label px-1" for="username">
                             Login
                         </label>
-                        <input pInputText id="login" name="login" type="text" ngModel required
+                        <input pInputText id="username" name="username" type="text" ngModel required
                                #login="ngModel" [style]="{width: '100%'}"
                                [maxlength]="250"
                                [ngClass]="{'invalid': (login.errors?.['required'] && login.touched)||(incorrectLogIn && password.value && login.value)}"/>
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="input-filed-container w-100 px-4 py-1">
-                        <label class="input-label px-1" for="haslo">
+                        <label class="input-label px-1" for="password">
                             Hasło
                         </label>
                         <p-password
@@ -34,8 +34,8 @@
                                 [feedback]="false"
                                 [maxLength]="120"
                                 [style]="{width: '100%'}"
-                                id="haslo"
-                                name="haslo"
+                                id="password"
+                                name="password"
                                 type="password"
                                 [ngClass]="{'invalid': (password.errors?.['required'] && password.touched)||(incorrectLogIn && password.value && login.value)}"
                                 required>

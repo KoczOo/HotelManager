@@ -1,12 +1,12 @@
 export class DaneLogowania {
-	login: string;
-	haslo: string;
+	username: string;
+	password: string;
 
 	constructor(
-		login: string,
-		haslo: string,
+		username: string,
+		password: string,
 	) {
-		this.login = login;
-		this.haslo = haslo;
+		this.username = username;
+		this.password = password;
 	}
 }
