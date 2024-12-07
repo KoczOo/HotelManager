@@ -17,6 +17,8 @@ export class RoomsComponent implements OnInit {
     pageable: PageableDto = new PageableDto(this.page, 10, null);
     pokoje: any[];
     isLoading: boolean = true;
+    dateTo: any;
+    dateFrom: any;
 
     constructor(private fb: FormBuilder, public roomService: RoomsService, private dialogService: DialogService,) {
     }

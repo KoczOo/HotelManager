@@ -17,26 +17,26 @@
                 <h5 class="section-header-title">POKOJE</h5>
             </div>
             <hr class="break-line-section"/>
-            <form [formGroup]="form" class="section-body">
+            <form #form="ngForm" class="section-body">
                 <div class="row px-2 py-1">
                     <div class="col">
                         <div class="row">
                             <div class="col-xl-3 col-lg-3 col-md-3 offset-3 py-2">
                                 <div class="input-filed-container w-100">
                                     <label class="input-label"
-                                           for="dataOd">
+                                           for="dateFrom">
                                         Data zameldowania
                                     </label>
-                                    <p-calendar id="dataOd"></p-calendar>
+                                    <p-calendar [(ngModel)]="dateFrom" [ngModelOptions]="{standalone:true}" id="dateFrom"></p-calendar>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-3 py-2">
                                 <div class="input-filed-container w-100">
                                     <label class="input-label"
-                                           for="dataDo">
+                                           for="dateTo">
                                         Data wymeldowania
                                     </label>
-                                    <p-calendar id="dataDo"></p-calendar>
+                                    <p-calendar [(ngModel)]="dateTo" [ngModelOptions]="{standalone:true}" id="dateTo"></p-calendar>
                                 </div>
                             </div>
                             <div class="col-2 py-2">
@@ -93,7 +93,7 @@
                             <td class="table-item">{{ room.price | currency }}</td>
                             <td class="table-dots">
                                 <p-button
-                                        (onClick)="showBookRoomModal('Rezerwacja pokoju', {room})"
+                                        (onClick)="showBookRoomModal('Rezerwacja pokoju', {room: room, dateFrom: dateFrom, dateTo: dateTo})"
                                         icon="pi pi-calendar-plus"
                                         class="room-action-button"
                                         ngbTooltip="Rezerwuj"
