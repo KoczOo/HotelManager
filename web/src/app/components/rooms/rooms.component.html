@@ -90,7 +90,7 @@
                             <td class="table-item">{{ room.standard }}</td>
                             <td class="table-item">{{ room.capacity }}</td>
                             <td class="table-item">{{ room.floor }}</td>
-                            <td class="table-item">{{ room.price }}</td>
+                            <td class="table-item">{{ room.price | currency }}</td>
                             <td class="table-dots">
                                 <p-button
                                         (onClick)="showBookRoomModal('Rezerwacja pokoju', {room})"
