@@ -2,13 +2,14 @@ package com.hotel_manager.api.dto;
 
 import lombok.Data;
 
+import java.util.Date;
+
+
 @Data
 public class ReservationDto {
-    private int id;
-    private int guestId;
-    private String reservationDate;
-    private String reservationTime;
-    private String reservationStatus;
-    private String paymentMethod;
-    private String paymentStatus;
+    private String id;
+    private Date dateFrom;
+    private Date dateTo;
+    private RoomDto room;
+    private GuestDto guest;
 }

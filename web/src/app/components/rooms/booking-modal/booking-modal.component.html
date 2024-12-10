@@ -5,11 +5,13 @@
         <h6 class="subtitle">Dane rezerwacji</h6>
         <hr class="line-section"/>
       </div>
-      <div class="row pt-3">
+      <div class="row pt-3" formGroupName="reservation">
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label disabled-label" for="dateFrom">Data zameldowania</label>
             <p-calendar
+              [showOnFocus]="false"
+              [readonlyInput]="true"
               class="w-100"
               formControlName="dateFrom"
               id="dateFrom"/>
@@ -19,6 +21,8 @@
           <div class="input-filed-container w-100">
             <label class="input-label disabled-label" for="dateTo">Data wymeldowania</label>
             <p-calendar
+              [showOnFocus]="false"
+              [readonlyInput]="true"
               class="w-100"
               formControlName="dateTo"
               id="dateTo"/>
@@ -41,103 +45,97 @@
         <h6 class="subtitle">Dane podstawowe</h6>
         <hr class="line-section"/>
       </div>
-      <div class="row pt-3">
+      <div class="row pt-3" formGroupName="guest">
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="name">Imię</label>
             <input
-              [ngClass]="{'invalid': (form.controls['name'].errors?.['required'] && form.controls['name']?.touched)}"
               class="w-100"
               formControlName="name"
               id="name"
               pInputText
               type="text"
             />
-            <div *ngIf="form.controls['name'].errors?.['required'] && form.controls['name']?.touched"
+            <!--<div *ngIf="form.controls['name'].errors?.['required'] && form.controls['name']?.touched"
                  class="validator-error">
               Pole wymagane
-            </div>
+            </div>-->
           </div>
         </div>
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="surname">Nazwisko</label>
             <input
-              [ngClass]="{'invalid': (form.controls['surname'].errors?.['required'] && form.controls['surname']?.touched)}"
               class="w-100"
               formControlName="surname"
               id="surname"
               pInputText
               type="text"/>
-            <div *ngIf="form.controls['surname'].errors?.['required'] && form.controls['surname']?.touched"
+            <!--<div *ngIf="form.controls['surname'].errors?.['required'] && form.controls['surname']?.touched"
                  class="validator-error">
               Pole wymagane
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
-      <div class="row pt-3">
+      <div class="row pt-3" formGroupName="guest">
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="sex">Płeć</label>
             <input
-              [ngClass]="{'invalid': (form.controls['sex'].errors?.['required'] && form.controls['sex']?.touched)}"
               class="w-100"
               formControlName="sex"
               id="sex"
               pInputText
               type="text"/>
-            <div *ngIf="form.controls['sex'].errors?.['required'] && form.controls['sex']?.touched"
+            <!--<div *ngIf="form.controls['sex'].errors?.['required'] && form.controls['sex']?.touched"
                  class="validator-error">
               Pole wymagane
-            </div>
+            </div>-->
           </div>
         </div>
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="dateBirth">Data urodzenia</label>
-            <p-calendar [ngClass]="{'invalid': (form.controls['birthday'].errors?.['required'] && form.controls['birthday']?.touched)}"
-                        appendTo="body"
+            <p-calendar appendTo="body"
                         class="w-100"
                         formControlName="birthday"
                         id="dateBirth"
                         type="text"/>
-            <div *ngIf="form.controls['birthday'].errors?.['required'] && form.controls['birthday']?.touched"
+           <!-- <div *ngIf="form.controls['birthday'].errors?.['required'] && form.controls['birthday']?.touched"
                  class="validator-error">
               Pole wymagane
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
-      <div class="row pt-3">
+      <div class="row pt-3" formGroupName="guest">
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="phone">Telefon</label>
-            <input [ngClass]="{'invalid': (form.controls['phone'].errors?.['required'] && form.controls['phone']?.touched)}"
-                   class="w-100"
+            <input class="w-100"
                    formControlName="phone"
                    id="phone"
                    pInputText
                    type="text"/>
-            <div *ngIf="form.controls['phone'].errors?.['required'] && form.controls['phone']?.touched"
+            <!--<div *ngIf="form.controls['phone'].errors?.['required'] && form.controls['phone']?.touched"
                  class="validator-error">
               Pole wymagane
-            </div>
+            </div>-->
           </div>
         </div>
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="email">E-mail</label>
-            <input [ngClass]="{'invalid': (form.controls['email'].errors?.['required'] && form.controls['email']?.touched)}"
-                   class="w-100"
+            <input class="w-100"
                    formControlName="email"
                    id="email"
                    pInputText
                    type="text"/>
-            <div *ngIf="form.controls['email'].errors?.['required'] && form.controls['email']?.touched"
+            <!--<div *ngIf="form.controls['email'].errors?.['required'] && form.controls['email']?.touched"
                  class="validator-error">
               Pole wymagane
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
@@ -145,67 +143,63 @@
         <h6 class="subtitle">Adres zamieszkania</h6>
         <hr class="line-section"/>
       </div>
-      <div class="row pt-3">
+      <div class="row pt-3" formGroupName="guest">
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="address">Adres</label>
-            <input [ngClass]="{'invalid': (form.controls['address'].errors?.['required'] && form.controls['address']?.touched)}"
-                   class="w-100"
+            <input class="w-100"
                    formControlName="address"
                    id="address"
                    pInputText
                    type="text"/>
-            <div *ngIf="form.controls['address'].errors?.['required'] && form.controls['address']?.touched"
+            <!--<div *ngIf="form.controls['address'].errors?.['required'] && form.controls['address']?.touched"
                  class="validator-error">
               Pole wymagane
-            </div>
+            </div>-->
           </div>
         </div>
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="city">Miasto</label>
-            <input [ngClass]="{'invalid': (form.controls['city'].errors?.['required'] && form.controls['city']?.touched)}"
-                   class="w-100"
+            <input class="w-100"
                    formControlName="city"
                    id="city"
                    pInputText
                    type="text"/>
-            <div *ngIf="form.controls['city'].errors?.['required'] && form.controls['city']?.touched"
+            <!--<div *ngIf="form.controls['city'].errors?.['required'] && form.controls['city']?.touched"
                  class="validator-error">
               Pole wymagane
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
-      <div class="row pt-3">
+      <div class="row pt-3" formGroupName="guest">
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="state">Województwo</label>
-            <input [ngClass]="{'invalid': (form.controls['state'].errors?.['required'] && form.controls['state']?.touched)}"
-                   class="w-100"
+            <input class="w-100"
                    formControlName="state"
                    id="state"
                    pInputText
                    type="text"/>
-            <div *ngIf="form.controls['state'].errors?.['required'] && form.controls['state']?.touched"
+            <!--<div *ngIf="form.controls['state'].errors?.['required'] && form.controls['state']?.touched"
                  class="validator-error">
               Pole wymagane
-            </div>
+            </div>-->
           </div>
         </div>
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="zipCode">Kod pocztowy</label>
-            <input [ngClass]="{'invalid': (form.controls['zipCode'].errors?.['required'] && form.controls['zipCode']?.touched)}"
-                   class="w-100"
+            <input class="w-100"
                    formControlName="zipCode"
                    id="zipCode"
                    pInputText
                    type="text"/>
-            <div *ngIf="form.controls['zipCode'].errors?.['required'] && form.controls['zipCode']?.touched"
+            <!--<div *ngIf="form.controls['zipCode'].errors?.['required'] && form.controls['zipCode']?.touched"
                  class="validator-error">
               Pole wymagane
-            </div>
+            </div>-->
           </div>
         </div>
       </div>

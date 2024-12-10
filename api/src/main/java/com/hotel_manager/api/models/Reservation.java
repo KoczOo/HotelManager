@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
+
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -11,17 +14,14 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Reservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private int guestId;
-    private String reservationDate;
-    private String reservationTime;
-    private String reservationStatus;
-    private String paymentMethod;
-    private String paymentStatus;
-
+    @UuidGenerator
+    private String id;
+    private Date dateFrom;
+    private Date dateTo;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "room_id")
     private Room room;
-
+    @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Guest guest;
 }

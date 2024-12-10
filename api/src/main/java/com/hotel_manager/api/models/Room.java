@@ -24,9 +24,6 @@ public class Room {
     private int capacity;
     private int floor;
     private int price;
-
-
-
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reservation> reservations = new ArrayList<Reservation>();
 }

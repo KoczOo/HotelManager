@@ -11,4 +11,9 @@ export class RoomsService {
   readRooms() {
     return this.restService.get("api/room");
   }
+
+  bookRoom(roomId: string, reservation: any) {
+
+    return this.restService.post(`api/room/reservations/${roomId}`, reservation);
+  }
 }

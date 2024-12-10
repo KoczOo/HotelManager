@@ -34,6 +34,10 @@ public class RoomServiceImpl implements RoomService {
     }
 
     private RoomDto mapToDto(Room room) {
+        return getRoomDto(room);
+    }
+
+    static RoomDto getRoomDto(Room room) {
         RoomDto roomDto = new RoomDto();
         roomDto.setId(room.getId());
         roomDto.setNumber(room.getNumber());

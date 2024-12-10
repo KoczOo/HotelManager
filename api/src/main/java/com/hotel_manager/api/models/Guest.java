@@ -1,9 +1,6 @@
 package com.hotel_manager.api.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +14,7 @@ import java.util.Date;
 public class Guest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
     private String name;
     private String surname;
     private String sex;
@@ -27,5 +24,9 @@ public class Guest {
     private String address;
     private String city;
     private String state;
-    private String zip;
+    private String zipCode;
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "reservation_id")
+    private Reservation reservation;
 }
