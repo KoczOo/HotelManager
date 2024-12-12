@@ -40,6 +40,10 @@ export class BookingModalComponent implements OnInit {
     })
   }
 
+  getControl(formGroup: string, control: string)  {
+    return this.form.controls[formGroup].get(control)
+  }
+
   confirmCancel(event: Event) {
     this.confirmationService.confirm({
       target: event.target as EventTarget,
@@ -76,5 +80,6 @@ export class BookingModalComponent implements OnInit {
      })
     }
   }
+
 
 }

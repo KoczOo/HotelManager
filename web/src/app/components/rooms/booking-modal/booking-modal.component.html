@@ -49,32 +49,32 @@
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="name">Imię</label>
-            <input
+            <input [ngClass]="{'invalid': (this.getControl('guest','name')?.errors?.['required'] && this.getControl('guest','name')?.touched)}"
               class="w-100"
               formControlName="name"
               id="name"
               pInputText
               type="text"
             />
-            <!--<div *ngIf="form.controls['name'].errors?.['required'] && form.controls['name']?.touched"
+            <div *ngIf="this.getControl('guest','name')?.errors?.['required'] && this.getControl('guest','name')?.touched"
                  class="validator-error">
               Pole wymagane
-            </div>-->
+            </div>
           </div>
         </div>
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="surname">Nazwisko</label>
-            <input
+            <input [ngClass]="{'invalid': (this.getControl('guest','surname')?.errors?.['required'] && this.getControl('guest','surname')?.touched)}"
               class="w-100"
               formControlName="surname"
               id="surname"
               pInputText
               type="text"/>
-            <!--<div *ngIf="form.controls['surname'].errors?.['required'] && form.controls['surname']?.touched"
-                 class="validator-error">
-              Pole wymagane
-            </div>-->
+              <div *ngIf="this.getControl('guest','surname')?.errors?.['required'] && this.getControl('guest','surname')?.touched"
+                   class="validator-error">
+                  Pole wymagane
+              </div>
           </div>
         </div>
       </div>
@@ -82,30 +82,31 @@
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="sex">Płeć</label>
-            <input
+            <input [ngClass]="{'invalid': (this.getControl('guest','sex')?.errors?.['required'] && this.getControl('guest','sex')?.touched)}"
               class="w-100"
               formControlName="sex"
               id="sex"
               pInputText
               type="text"/>
-            <!--<div *ngIf="form.controls['sex'].errors?.['required'] && form.controls['sex']?.touched"
-                 class="validator-error">
-              Pole wymagane
-            </div>-->
+              <div *ngIf="this.getControl('guest','sex')?.errors?.['required'] && this.getControl('guest','sex')?.touched"
+                   class="validator-error">
+                  Pole wymagane
+              </div>
           </div>
         </div>
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="dateBirth">Data urodzenia</label>
-            <p-calendar appendTo="body"
+            <p-calendar [ngClass]="{'invalid': (this.getControl('guest','birthday')?.errors?.['required'] && this.getControl('guest','birthday')?.touched)}"
+                        appendTo="body"
                         class="w-100"
                         formControlName="birthday"
                         id="dateBirth"
                         type="text"/>
-           <!-- <div *ngIf="form.controls['birthday'].errors?.['required'] && form.controls['birthday']?.touched"
-                 class="validator-error">
-              Pole wymagane
-            </div>-->
+              <div *ngIf="this.getControl('guest','birthday')?.errors?.['required'] && this.getControl('guest','birthday')?.touched"
+                   class="validator-error">
+                  Pole wymagane
+              </div>
           </div>
         </div>
       </div>
@@ -113,29 +114,31 @@
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="phone">Telefon</label>
-            <input class="w-100"
-                   formControlName="phone"
-                   id="phone"
-                   pInputText
-                   type="text"/>
-            <!--<div *ngIf="form.controls['phone'].errors?.['required'] && form.controls['phone']?.touched"
-                 class="validator-error">
-              Pole wymagane
-            </div>-->
+            <input  [ngClass]="{'invalid': (this.getControl('guest','phone')?.errors?.['required'] && this.getControl('guest','phone')?.touched)}"
+                    class="w-100"
+                    formControlName="phone"
+                    id="phone"
+                    pInputText
+                    type="text"/>
+              <div *ngIf="this.getControl('guest','phone')?.errors?.['required'] && this.getControl('guest','phone')?.touched"
+                   class="validator-error">
+                  Pole wymagane
+              </div>
           </div>
         </div>
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="email">E-mail</label>
-            <input class="w-100"
-                   formControlName="email"
-                   id="email"
-                   pInputText
-                   type="text"/>
-            <!--<div *ngIf="form.controls['email'].errors?.['required'] && form.controls['email']?.touched"
-                 class="validator-error">
-              Pole wymagane
-            </div>-->
+            <input  [ngClass]="{'invalid': (this.getControl('guest','email')?.errors?.['required'] && this.getControl('guest','email')?.touched)}"
+                    class="w-100"
+                    formControlName="email"
+                    id="email"
+                    pInputText
+                    type="text"/>
+              <div *ngIf="this.getControl('guest','email')?.errors?.['required'] && this.getControl('guest','email')?.touched"
+                   class="validator-error">
+                  Pole wymagane
+              </div>
           </div>
         </div>
       </div>
@@ -147,29 +150,31 @@
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="address">Adres</label>
-            <input class="w-100"
-                   formControlName="address"
-                   id="address"
-                   pInputText
-                   type="text"/>
-            <!--<div *ngIf="form.controls['address'].errors?.['required'] && form.controls['address']?.touched"
-                 class="validator-error">
-              Pole wymagane
-            </div>-->
+            <input  [ngClass]="{'invalid': (this.getControl('guest','address')?.errors?.['required'] && this.getControl('guest','address')?.touched)}"
+                    class="w-100"
+                    formControlName="address"
+                    id="address"
+                    pInputText
+                    type="text"/>
+              <div *ngIf="this.getControl('guest','address')?.errors?.['required'] && this.getControl('guest','address')?.touched"
+                   class="validator-error">
+                  Pole wymagane
+              </div>
           </div>
         </div>
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="city">Miasto</label>
-            <input class="w-100"
-                   formControlName="city"
-                   id="city"
-                   pInputText
-                   type="text"/>
-            <!--<div *ngIf="form.controls['city'].errors?.['required'] && form.controls['city']?.touched"
-                 class="validator-error">
-              Pole wymagane
-            </div>-->
+            <input  [ngClass]="{'invalid': (this.getControl('guest','city')?.errors?.['required'] && this.getControl('guest','city')?.touched)}"
+                    class="w-100"
+                    formControlName="city"
+                    id="city"
+                    pInputText
+                    type="text"/>
+              <div *ngIf="this.getControl('guest','city')?.errors?.['required'] && this.getControl('guest','city')?.touched"
+                   class="validator-error">
+                  Pole wymagane
+              </div>
           </div>
         </div>
       </div>
@@ -177,29 +182,31 @@
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="state">Województwo</label>
-            <input class="w-100"
-                   formControlName="state"
-                   id="state"
-                   pInputText
-                   type="text"/>
-            <!--<div *ngIf="form.controls['state'].errors?.['required'] && form.controls['state']?.touched"
-                 class="validator-error">
-              Pole wymagane
-            </div>-->
+            <input  [ngClass]="{'invalid': (this.getControl('guest','state')?.errors?.['required'] && this.getControl('guest','state')?.touched)}"
+                    class="w-100"
+                    formControlName="state"
+                    id="state"
+                    pInputText
+                    type="text"/>
+              <div *ngIf="this.getControl('guest','state')?.errors?.['required'] && this.getControl('guest','state')?.touched"
+                   class="validator-error">
+                  Pole wymagane
+              </div>
           </div>
         </div>
         <div class="col-6 col-md">
           <div class="input-filed-container w-100">
             <label class="input-label" for="zipCode">Kod pocztowy</label>
-            <input class="w-100"
-                   formControlName="zipCode"
-                   id="zipCode"
-                   pInputText
-                   type="text"/>
-            <!--<div *ngIf="form.controls['zipCode'].errors?.['required'] && form.controls['zipCode']?.touched"
-                 class="validator-error">
-              Pole wymagane
-            </div>-->
+            <input  [ngClass]="{'invalid': (this.getControl('guest','zipCode')?.errors?.['required'] && this.getControl('guest','zipCode')?.touched)}"
+                    class="w-100"
+                    formControlName="zipCode"
+                    id="zipCode"
+                    pInputText
+                    type="text"/>
+              <div *ngIf="this.getControl('guest','zipCode')?.errors?.['required'] && this.getControl('guest','zipCode')?.touched"
+                   class="validator-error">
+                  Pole wymagane
+              </div>
           </div>
         </div>
       </div>
