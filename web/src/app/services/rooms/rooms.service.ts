@@ -13,7 +13,6 @@ export class RoomsService {
   }
 
   bookRoom(roomId: string, reservation: any) {
-
     return this.restService.post(`api/room/reservations/${roomId}`, reservation);
   }
 }
