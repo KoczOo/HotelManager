@@ -11,4 +11,12 @@ export class ReservationsService {
   getReservations() {
     this.restService.get("reservations")
   }
+
+  getReservationDetails(id: number) {
+    this.restService.get("reservations/" + id)
+  }
+
+  deleteReservation(id: number) {
+    this.restService.delete(`reservations/${id}`)
+  }
 }
