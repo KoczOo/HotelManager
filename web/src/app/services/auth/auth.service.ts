@@ -48,7 +48,7 @@ export class AuthService {
                     const decodedToken = this.decodeToken(response.token);
                     this.authTokenService.setToken(response.token);
                     this.authTokenService.setTimesToTimer();
-                    this.router.navigate([""]);
+                    this.router.navigate(["/rooms"]);
                 }
             });
     }

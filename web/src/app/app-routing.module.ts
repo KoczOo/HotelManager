@@ -4,6 +4,7 @@ import {LoginComponent} from "./components/login/login.component";
 import {LayoutComponent} from "./components/layout/layout.component";
 import {authenticationGuard} from "./guards/authentication-guard.guard";
 import {RoomsComponent} from "./components/rooms/rooms.component";
+import {ReservationsComponent} from "./components/reservations/reservations.component";
 
 const routes: Routes = [
   {
@@ -11,13 +12,17 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: "**",
+    path: "",
     component: LayoutComponent,
     canActivate: [authenticationGuard],
     children: [
       {
-        path: "**",
+        path: "rooms",
         component: RoomsComponent
+      },
+      {
+        path: "reservations",
+        component: ReservationsComponent
       }
     ]
   }

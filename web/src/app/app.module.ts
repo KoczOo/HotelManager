@@ -26,6 +26,7 @@ import {TableModule} from "primeng/table";
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
 import { BookingModalComponent } from './components/rooms/booking-modal/booking-modal.component';
 import {DialogService} from "primeng/dynamicdialog";
+import { ReservationsComponent } from './components/reservations/reservations.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import {DialogService} from "primeng/dynamicdialog";
         HeaderComponent,
         FooterComponent,
         RoomsComponent,
-        BookingModalComponent
+        BookingModalComponent,
+        ReservationsComponent
     ],
     imports: [
         BrowserModule,

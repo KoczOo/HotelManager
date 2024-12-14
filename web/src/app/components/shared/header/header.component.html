@@ -4,13 +4,24 @@
       <div class="row">
         <div class="col-md-4 col-sm-12 col-12 text-center align-middle">
           <div class="logo-panel">
-            <img src="assets/logo-no-background.png" alt="HM Logo"/>
+            <img alt="HM Logo" src="assets/logo-no-background.png"/>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 col-7 text-center align-middle">
           <ng-container *ngIf="authServiceToken.isLoggedIn()">
             <div>
               <div class="navigation-container">
+                <ng-container *ngFor="let menu of menuElement">
+                  <ng-container *ngIf="menu.exist">
+                        <a [routerLinkActiveOptions]="{ exact: menu.exact }"
+                           [routerLink]="menu.url"
+                           class="header-menu navigation-link hover-underline-animation"
+                           routerLink
+                           routerLinkActive="active">
+                        {{ menu.header }}
+                      </a>
+                  </ng-container>
+                </ng-container>
               </div>
             </div>
           </ng-container>

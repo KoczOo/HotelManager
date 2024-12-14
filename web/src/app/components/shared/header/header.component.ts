@@ -4,12 +4,21 @@ import {AuthService} from "../../../services/auth/auth.service";
 import {AuthTokenService} from "../../../services/auth/auth-token.service";
 import {StorageHelperService} from "../../../helpers/storage-helper.service";
 
+class MenuElement {
+  header: string;
+  url?: string;
+  isActiveElement?: () => boolean;
+  exact: boolean;
+  exist: boolean;
+}
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
+  menuElement: MenuElement[] = [];
 
   constructor(
     private router: Router,
@@ -21,11 +30,27 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     if (this.authServiceToken.isLoggedIn()) {
+      this.createMenu();
     }
   }
 
   logoutUser() {
     this.authService.onLogout();
   }
-
+  createMenu() {
+    this.menuElement = [
+      {
+        header: "POKOJE",
+        exist: true,
+        exact: false,
+        url: "/rooms",
+      },
+      {
+        header: "REZERWACJE",
+        exist: true,
+        exact: true,
+        url: "/reservations",
+      }
+      ]
+  }
 }
