@@ -160,6 +160,7 @@
   border-radius: 50%;
 }
 .user-name-text {
+  display: inline-block;
   text-decoration: none;
   color: var(--text-on-dark);
   font-size: 16px;
@@ -209,4 +210,8 @@
 }
 .navigation-menu-element {
   padding-bottom: 15px;
+}
+
+.user-logged-info {
+  //display: flex;
 }

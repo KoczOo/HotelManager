@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
       {
         header: "POKOJE",
         exist: true,
-        exact: false,
+        exact: true,
         url: "/rooms",
       },
       {
@@ -52,5 +52,8 @@ export class HeaderComponent implements OnInit {
         url: "/reservations",
       }
       ]
+  }
+  getLoggedUser() {
+    return this.authServiceToken.getLoogedUser();
   }
 }

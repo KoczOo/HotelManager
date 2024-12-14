@@ -35,6 +35,9 @@
                 </div>
                 <p-overlayPanel #op [dismissable]="true" appendTo="body">
                   <ng-template pTemplate="content">
+                    <div class="col-8 p-3 user-logged-info">
+                      <p class="user-name-text"><b>Zalogowany jako: &nbsp; </b>{{ getLoggedUser() }}</p>
+                    </div>
                     <div class="break-line"></div>
                     <div class="row">
                       <div class="col-12 text-center pt-2">

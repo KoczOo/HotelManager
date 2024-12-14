@@ -45,8 +45,12 @@ export class AuthTokenService {
 		this.cookieService.set("token", token);
 	}
 
-	getIdSesja() {
-		return this.cookieService.get("idSesja");
+  setLogggedUser(user: string) {
+    this.cookieService.set("loggedUser", user);
+  }
+
+	getLoogedUser() {
+		return this.cookieService.get("loggedUser");
 	}
 
 	returnTokenValidTime(): number {
