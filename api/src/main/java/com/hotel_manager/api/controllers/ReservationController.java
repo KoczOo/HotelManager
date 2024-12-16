@@ -37,4 +37,9 @@ public class ReservationController {
         return ResponseEntity.ok(reservationService.getAllReservations());
     }
 
+    @DeleteMapping("/reservations/{reservationId}")
+    public ResponseEntity<HttpStatus> deleteReservation(@PathVariable(value = "reservationId") final String reservationId) {
+        return ResponseEntity.ok(reservationService.deleteReservation(reservationId));
+    }
+
 }

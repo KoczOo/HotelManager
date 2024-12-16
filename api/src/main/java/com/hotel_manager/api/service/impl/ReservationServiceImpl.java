@@ -11,6 +11,7 @@ import com.hotel_manager.api.repository.ReservationRepository;
 import com.hotel_manager.api.repository.RoomRepository;
 import com.hotel_manager.api.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,6 +51,13 @@ public class ReservationServiceImpl implements ReservationService {
     public List<ReservationDto> getAllReservations() {
         List<Reservation> reservations = reservationRepository.findAll();
         return reservations.stream().map(this::mapToDto).toList();
+    }
+
+    @Override
+    public HttpStatus deleteReservation(String reservationId) {
+        Reservation reservation = reservationRepository.findById(reservationId);
+        reservationRepository.delete(reservation);
+        return HttpStatus.OK;
     }
 
     private Reservation mapReservationToEntity(ReservationDto reservationDto) {

@@ -9,14 +9,14 @@ export class ReservationsService {
   constructor(private restService: RestService) {}
 
   getReservations() {
-    return this.restService.get("api/reservations")
+    return this.restService.get("api/reservations");
   }
 
   getReservationDetails(id: number) {
-    this.restService.get("reservations/" + id)
+    this.restService.get("api/reservations/" + id)
   }
 
-  deleteReservation(id: number) {
-    this.restService.delete(`reservations/${id}`)
+  deleteReservation(reservationId: string) {
+    return  this.restService.delete(`api/reservations/${reservationId}`);
   }
 }

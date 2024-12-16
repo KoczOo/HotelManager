@@ -78,7 +78,6 @@ export class BookingModalComponent implements OnInit {
     if (form.valid) {
       this.roomService.bookRoom(this.ref.room.id, form.value).subscribe(response => {
         this.messageService.showMessageSuccess("Pokój został zarezerowaony!");
-
         this.closePopup();
      })
     }

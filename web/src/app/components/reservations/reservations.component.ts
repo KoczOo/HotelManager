@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PageableDto} from "../../dto/pagination/pageable-dto";
 import {ReservationsService} from "../../services/reservations/reservations.service";
+import {ConfirmationService} from "primeng/api";
+import {MessageServiceService} from "../../services/message-service/message-service.service";
 
 @Component({
   selector: 'app-reservations',
@@ -14,12 +16,11 @@ export class ReservationsComponent implements OnInit {
   rezerwacje: any[] = [];
   isLoading: boolean = true;
 
-  constructor(public reservationsService: ReservationsService) {
+  constructor(public reservationsService: ReservationsService, private confirmationService: ConfirmationService,public messageService: MessageServiceService) {
   }
 
   ngOnInit() {
     this.reservationsService.getReservations().subscribe(response => {
-      console.log(response);
       this.rezerwacje = response;
     })
   }
@@ -30,7 +31,24 @@ export class ReservationsComponent implements OnInit {
 
   protected readonly String = String;
 
-  deleteReservation(reservationId: string) {
-
+  deleteReservation(event: Event, reservationId: string) {
+    this.confirmationService.confirm({
+      target: event.target as EventTarget,
+      message: "Czy na pewno chcesz usunąć rezerwację?",
+      header: "Usuń rezerwację",
+      acceptIcon: "none",
+      rejectIcon: "none",
+      rejectButtonStyleClass: "p-button-outlined p-button-text",
+      accept: () => {
+        this.reservationsService.deleteReservation(reservationId).subscribe(response => {
+          if(response === "OK"){
+            this.messageService.showMessageSuccess("Rezerwacja została usunięta!")
+            this.reservationsService.getReservations().subscribe(response => {
+              this.rezerwacje = response;
+            })
+          }
+        });
+      },
+    });
   }
 }
