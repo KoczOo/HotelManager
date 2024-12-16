@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ConfirmationService} from "primeng/api";
 import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {RoomsService} from "../../../services/rooms/rooms.service";
+import {MessageServiceService} from "../../../services/message-service/message-service.service";
 
 @Component({
   selector: 'app-booking-modal',
@@ -14,7 +15,7 @@ export class BookingModalComponent implements OnInit {
   ref: any;
   totalPayment: number = 0;
 
-  constructor(private dialog: DynamicDialogRef, public config: DynamicDialogConfig, private confirmationService: ConfirmationService, private fb: FormBuilder, private roomService: RoomsService) {
+  constructor(private dialog: DynamicDialogRef, public config: DynamicDialogConfig, private confirmationService: ConfirmationService, private fb: FormBuilder, private roomService: RoomsService, public messageService: MessageServiceService) {
   }
 
   ngOnInit() {
@@ -53,12 +54,12 @@ export class BookingModalComponent implements OnInit {
       rejectIcon: "none",
       rejectButtonStyleClass: "p-button-text",
       accept: () => {
-        this.zamknijPopup();
+        this.closePopup();
       },
     });
   }
 
-  private zamknijPopup() {
+  private closePopup() {
     this.dialog.destroy();
   }
 
@@ -76,7 +77,9 @@ export class BookingModalComponent implements OnInit {
     form.markAllAsTouched()
     if (form.valid) {
       this.roomService.bookRoom(this.ref.room.id, form.value).subscribe(response => {
-        console.log(response);
+        this.messageService.showMessageSuccess("Pokój został zarezerowaony!");
+
+        this.closePopup();
      })
     }
   }

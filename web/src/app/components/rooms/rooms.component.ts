@@ -15,23 +15,31 @@ export class RoomsComponent implements OnInit {
     page: number = 0;
     totalRecords: number = 0;
     pageable: PageableDto = new PageableDto(this.page, 10, null);
-    pokoje: any[];
+    rooms: any[];
     isLoading: boolean = true;
-    dateTo: any;
-    dateFrom: any;
+    dateTo: Date | null = null;
+    dateFrom: Date | null = null;
+    isSearchedByDate: boolean = false;
 
     constructor(private fb: FormBuilder, public roomService: RoomsService, private dialogService: DialogService,) {
     }
 
     ngOnInit() {
         this.form = this.fb.group({});
-        this.roomService.readRooms().subscribe(response => {
-            this.pokoje = response;
+        this.roomService.readRooms(this.dateFrom, this.dateTo).subscribe(response => {
+            this.rooms = response;
         })
     }
 
-    szukajPokoju() {
-
+    searchFreeRoom() {
+        this.roomService.readRooms(this.dateFrom, this.dateTo).subscribe(response => {
+            if (response.length > 0) {
+                this.rooms = response;
+                this.isSearchedByDate = true;
+            } else {
+                this.isSearchedByDate = false;
+            }
+        })
     }
 
     showBookRoomModal(header: string, data: any) {
@@ -43,5 +51,15 @@ export class RoomsComponent implements OnInit {
             closable: false,
             focusOnShow: false,
         });
+        refBookingModal.onClose.subscribe(() => {
+            this.form.reset();
+            this.roomService.readRooms(this.dateFrom, this.dateTo).subscribe(response => {
+                this.rooms = response;
+            })
+        })
+    }
+
+    checkIsBookingDateSelected() {
+        return this.dateFrom !== null && this.dateTo !== null && this.isSearchedByDate;
     }
 }

@@ -1,5 +1,6 @@
 package com.hotel_manager.api.service.impl;
 
+import com.hotel_manager.api.dto.BookingFilterDto;
 import com.hotel_manager.api.dto.RoomDto;
 import com.hotel_manager.api.exceptions.RoomNotFoundException;
 import com.hotel_manager.api.models.Room;
@@ -22,10 +23,24 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public List<RoomDto> getAllRooms() {
-        List<Room> rooms = roomRepository.findAll();
+    public List<RoomDto> getAllRooms(BookingFilterDto bookingFilterDto) {
+        List<Room> rooms;
+        if (bookingFilterDto.getDateFrom() == null || bookingFilterDto.getDateTo() == null) {
+            rooms = roomRepository.findAll();
+        } else {
+            rooms = roomRepository.findAll().stream()
+                    .filter(room -> room.getReservations().stream()
+                            .allMatch(reservation ->
+                                    reservation.getDateTo().before(bookingFilterDto.getDateFrom()) ||
+                                            reservation.getDateFrom().after(bookingFilterDto.getDateTo())
+                            )
+                    )
+                    .toList();
+
+        }
         return rooms.stream().map(this::mapToDto).collect(Collectors.toList());
     }
+
 
     @Override
     public RoomDto getRoomById(int id) {

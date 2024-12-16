@@ -1,15 +1,13 @@
 package com.hotel_manager.api.controllers;
 
+import com.hotel_manager.api.dto.BookingFilterDto;
 import com.hotel_manager.api.dto.RoomDto;
 import com.hotel_manager.api.models.Room;
 import com.hotel_manager.api.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +23,9 @@ public class RoomController {
         this.roomService = roomService;
     }
 
-    @GetMapping("room")
-    public ResponseEntity<List<RoomDto>> getRooms() {
-        return new ResponseEntity<>(roomService.getAllRooms(), HttpStatus.OK);
+    @PostMapping("room")
+    public ResponseEntity<List<RoomDto>> getRooms(@RequestBody BookingFilterDto bookingFilterDto) {
+        return new ResponseEntity<>(roomService.getAllRooms(bookingFilterDto), HttpStatus.OK);
     }
 
     @GetMapping("room/{id}")

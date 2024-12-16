@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                             <div class="col-2 py-2">
-                                <p-button (click)="szukajPokoju()"
+                                <p-button (click)="searchFreeRoom()"
                                           class="add-item-button" label="SZUKAJ" size="small"
                                           styleClass="p-button p-button-rounded" type="submit"></p-button>
                             </div>
@@ -56,7 +56,7 @@
                          [rows]="pageable.size"
                          [tableStyle]="{'min-width': '30rem'}"
                          [totalRecords]="totalRecords"
-                         [value]="pokoje"
+                         [value]="rooms"
                          class="rooms-table"
                          dataKey="id"
                          styleClass="p-datatable-striped">
@@ -93,7 +93,17 @@
                             <td class="table-item">{{ room.price | currency }}</td>
                             <td class="table-dots">
                                 <p-button
+                                        *ngIf="checkIsBookingDateSelected()"
                                         (onClick)="showBookRoomModal('Rezerwacja pokoju', {room: room, dateFrom: dateFrom, dateTo: dateTo})"
+                                        icon="pi pi-calendar-plus"
+                                        class="room-action-button"
+                                        ngbTooltip="Rezerwuj"
+                                        styleClass="p-button-text">
+                                </p-button>
+                                <p-button
+                                        *ngIf="!checkIsBookingDateSelected()"
+                                        severity="secondary"
+                                        disabled
                                         icon="pi pi-calendar-plus"
                                         class="room-action-button"
                                         ngbTooltip="Rezerwuj"
