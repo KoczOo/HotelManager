@@ -27,6 +27,7 @@ import {AuthInterceptor} from "./interceptors/auth.interceptor";
 import { BookingModalComponent } from './components/rooms/booking-modal/booking-modal.component';
 import {DialogService} from "primeng/dynamicdialog";
 import { ReservationsComponent } from './components/reservations/reservations.component';
+import {NgbConfig, NgbTooltip, NgbTooltipConfig} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
     declarations: [
@@ -37,7 +38,7 @@ import { ReservationsComponent } from './components/reservations/reservations.co
         FooterComponent,
         RoomsComponent,
         BookingModalComponent,
-        ReservationsComponent
+        ReservationsComponent,
     ],
     imports: [
         BrowserModule,
@@ -56,10 +57,22 @@ import { ReservationsComponent } from './components/reservations/reservations.co
         ConfirmDialogModule,
         ReactiveFormsModule,
         CalendarModule,
-        TableModule
+        TableModule,
+        NgbTooltip
     ],
     providers: [DialogService, MessageService, ConfirmationService,
-        {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},],
+        {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+        {
+            provide: NgbTooltipConfig,
+            useFactory: () => {
+                const config = new NgbTooltipConfig();
+                config.openDelay = 300;
+                config.placement = 'bottom'
+                config.tooltipClass = 'tooltip-bottom';
+                return config;
+            },
+            deps: [NgbConfig],
+        },],
     bootstrap: [AppComponent]
 })
 export class AppModule {

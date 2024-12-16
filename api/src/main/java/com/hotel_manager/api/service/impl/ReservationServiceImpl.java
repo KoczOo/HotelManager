@@ -46,6 +46,12 @@ public class ReservationServiceImpl implements ReservationService {
         return mapToDto(newReservation);
     }
 
+    @Override
+    public List<ReservationDto> getAllReservations() {
+        List<Reservation> reservations = reservationRepository.findAll();
+        return reservations.stream().map(this::mapToDto).toList();
+    }
+
     private Reservation mapReservationToEntity(ReservationDto reservationDto) {
         Reservation reservation = new Reservation();
         reservation.setDateFrom(reservationDto.getDateFrom());

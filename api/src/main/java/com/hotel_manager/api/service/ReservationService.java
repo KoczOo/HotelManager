@@ -9,4 +9,5 @@ public interface ReservationService {
 
     List<ReservationDto> getReservationsByRoomId(int roomId);
     ReservationDto createBooking(int roomId, BookingDto bookingDto);
+    List<ReservationDto> getAllReservations();
 }

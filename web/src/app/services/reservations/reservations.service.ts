@@ -9,7 +9,7 @@ export class ReservationsService {
   constructor(private restService: RestService) {}
 
   getReservations() {
-    this.restService.get("reservations")
+    return this.restService.get("api/reservations")
   }
 
   getReservationDetails(id: number) {

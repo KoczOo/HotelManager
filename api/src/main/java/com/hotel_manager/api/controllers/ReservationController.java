@@ -32,4 +32,9 @@ public class ReservationController {
         return new ResponseEntity<>(reservationService.createBooking(roomId, bookingDto), HttpStatus.CREATED);
     }
 
+    @GetMapping("/reservations")
+    public ResponseEntity<List<ReservationDto>> getAllReservations() {
+        return ResponseEntity.ok(reservationService.getAllReservations());
+    }
+
 }
