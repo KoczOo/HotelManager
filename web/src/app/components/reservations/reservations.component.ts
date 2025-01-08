@@ -3,6 +3,9 @@ import {PageableDto} from "../../dto/pagination/pageable-dto";
 import {ReservationsService} from "../../services/reservations/reservations.service";
 import {ConfirmationService} from "primeng/api";
 import {MessageServiceService} from "../../services/message-service/message-service.service";
+import {BookingModalComponent} from "../rooms/booking-modal/booking-modal.component";
+import {DialogService} from "primeng/dynamicdialog";
+import {ReservationDetailsComponent} from "./reservation-details/reservation-details.component";
 
 @Component({
   selector: 'app-reservations',
@@ -16,7 +19,7 @@ export class ReservationsComponent implements OnInit {
   rezerwacje: any[] = [];
   isLoading: boolean = true;
 
-  constructor(public reservationsService: ReservationsService, private confirmationService: ConfirmationService,public messageService: MessageServiceService) {
+  constructor(public reservationsService: ReservationsService, private confirmationService: ConfirmationService,public messageService: MessageServiceService, private dialogService: DialogService) {
   }
 
   ngOnInit() {
@@ -25,8 +28,15 @@ export class ReservationsComponent implements OnInit {
     })
   }
 
-  showReservationsDetails(szczegółyRezerwacji: string, param2: { reservation: any }) {
-
+  showReservationsDetails(header: string, data: any) {
+    this.dialogService.open(ReservationDetailsComponent, {
+      data: data,
+      header: header,
+      width: "80%",
+      baseZIndex: 100,
+      closable: false,
+      focusOnShow: false,
+    });
   }
 
   protected readonly String = String;

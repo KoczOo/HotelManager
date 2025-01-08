@@ -28,6 +28,8 @@ import { BookingModalComponent } from './components/rooms/booking-modal/booking-
 import {DialogService} from "primeng/dynamicdialog";
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import {NgbConfig, NgbTooltip, NgbTooltipConfig} from "@ng-bootstrap/ng-bootstrap";
+import { ReservationDetailsComponent } from './components/reservations/reservation-details/reservation-details.component';
+import {QrCodeComponent} from "ng-qrcode";
 
 @NgModule({
     declarations: [
@@ -39,6 +41,7 @@ import {NgbConfig, NgbTooltip, NgbTooltipConfig} from "@ng-bootstrap/ng-bootstra
         RoomsComponent,
         BookingModalComponent,
         ReservationsComponent,
+        ReservationDetailsComponent,
     ],
     imports: [
         BrowserModule,
@@ -58,7 +61,8 @@ import {NgbConfig, NgbTooltip, NgbTooltipConfig} from "@ng-bootstrap/ng-bootstra
         ReactiveFormsModule,
         CalendarModule,
         TableModule,
-        NgbTooltip
+        NgbTooltip,
+        QrCodeComponent
     ],
     providers: [DialogService, MessageService, ConfirmationService,
         {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

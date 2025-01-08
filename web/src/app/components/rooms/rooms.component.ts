@@ -53,6 +53,8 @@ export class RoomsComponent implements OnInit {
         });
         refBookingModal.onClose.subscribe(() => {
             this.form.reset();
+            this.dateTo = null;
+            this.dateFrom = null;
             this.roomService.readRooms(this.dateFrom, this.dateTo).subscribe(response => {
                 this.rooms = response;
             })

@@ -1,0 +1,106 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 field-box">
+            <label class="field-label">ID rezerwacji</label>
+            <span>{{this.ref.reservation.id}}</span>
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-4 field-box">
+            <label class="field-label">Data zameldowania</label>
+            <span>{{this.ref.reservation.dateFrom | date: 'dd.MM.yyyy'}}</span>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">Data wymeldowania</label>
+            <span>{{this.ref.reservation.dateTo | date: 'dd.MM.yyyy'}}</span>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">Liczba noclegów</label>
+            <span>{{this.calculateDateDiff(this.ref.reservation.dateFrom, this.ref.reservation.dateTo)}}</span>
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-4 field-box">
+            <label class="field-label">Numer pokoju</label>
+            <span>{{this.ref.reservation.room.number}}</span>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">Piętro</label>
+            <span>{{this.ref.reservation.room.floor}}</span>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">Liczba gości</label>
+            <span>{{this.ref.reservation.room.capacity}}</span>
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-4 field-box">
+            <label class="field-label">Standrad pokoju</label>
+            <span>{{this.ref.reservation.room.standard}}</span>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">Cena za noc</label>
+            <span>{{this.ref.reservation.room.price | currency}}</span>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">Do zapłaty</label>
+            <span>{{this.calculateDateDiff(this.ref.reservation.dateFrom, this.ref.reservation.dateTo) * this.ref.reservation.room.price | currency}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="pt-4">
+            <h5 class="subtitle">Dane osobowe</h5>
+            <hr class="line-section"/>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">Imię</label>
+            <span>{{this.ref.reservation.guest.name}}</span>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">Nazwisko</label>
+            <span>{{this.ref.reservation.guest.surname}}</span>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">Data urodzenia</label>
+            <span>{{this.ref.reservation.guest.birthday | date: 'dd.MM.yyyy'}}</span>
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-4 field-box">
+            <label class="field-label">Kod pocztowy</label>
+            <span>{{this.ref.reservation.guest.zipCode}}</span>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">Miejscowość</label>
+            <span>{{this.ref.reservation.guest.city}}</span>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">Ulica</label>
+            <span>{{this.ref.reservation.guest.address}}</span>
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-4 field-box">
+            <label class="field-label">Płeć</label>
+            <span>{{this.ref.reservation.guest.sex}}</span>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">Telefon kontaktowy</label>
+            <span>{{this.ref.reservation.guest.phone}}</span>
+        </div>
+        <div class="col-4 field-box">
+            <label class="field-label">E-mail</label>
+            <span>{{this.ref.reservation.guest.email}}</span>
+        </div>
+    </div>
+    <qr-code id="qrCode" class="qr-code" [value]="this.ref.reservation.id" size="300" errorCorrectionLevel="M"/>
+    <div class="row pt-5">
+        <div class="table-buttons-container">
+            <p-button class="form-button" label="Wydrukuj potwierdzenie" icon="pi pi-file-pdf" (onClick)="printConfirmationToPdf()" />
+            <p-button (click)="confirmCancel($event)"
+                      class="form-button"
+                      label="ZAMKNIJ"
+                      styleClass="p-button-outlined"></p-button>
+        </div>
+    </div>
+</div>
